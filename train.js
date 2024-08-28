@@ -115,17 +115,67 @@
 
 // =============================================== C-TASK ======================================
 
-function checkContent(string1, string2) {
-  if (string1.length !== string2.length) {
-    return false;
-  }
-  // let tempDic = {};
-  // for (let i=0, l=string1.length-1; i<l; i++){
+// function checkContent(string1, string2) {
+//   if (string1.length !== string2.length) {
+//     return false;
+//   }
+//   // let tempDic = {};
+//   // for (let i=0, l=string1.length-1; i<l; i++){
 
-  // }
-  const sortedString1 = string1.split("").sort().join("");
-  const sortedString2 = string2.split("").sort().join("");
-  return sortedString1 === sortedString2;
+//   // }
+//   const sortedString1 = string1.split("").sort().join("");
+//   const sortedString2 = string2.split("").sort().join("");
+//   return sortedString1 === sortedString2;
+// }
+// const result = checkContent("mit15", "i1mt5");
+// console.log(result);
+
+// ================================================= D-TASK =============================
+
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+  getCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
+  }
+
+  qoldiq() {
+    const time = this.getCurrentTime();
+    console.log(
+      `Hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
+    );
+  }
+
+  sotish(mahsulot, soni) {
+    const time = this.getCurrentTime();
+    if (this[mahsulot] !== undefined && this[mahsulot] >= soni) {
+      this[mahsulot] -= soni;
+      console.log(`Hozir ${time}da ${soni}ta ${mahsulot} sotildi.`);
+    } else {
+      console.log(`Kechirasiz, ${time}da yetarli ${mahsulot} mavjud emas.`);
+    }
+  }
+
+  qabul(mahsulot, soni) {
+    const time = this.getCurrentTime();
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] += soni;
+      console.log(`Hozir ${time}da ${soni}ta ${mahsulot} qabul qilindi.`);
+    } else {
+      console.log(`Kechirasiz, ${time}da noto'g'ri mahsulot turi.`);
+    }
+  }
 }
-const result = checkContent("mit15", "i1mt5");
-console.log(result);
+
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
