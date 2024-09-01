@@ -132,50 +132,58 @@
 
 // ================================================= D-TASK =============================
 
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
+// class Shop {
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
 
-  getCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    return `${hours}:${minutes}`;
-  }
+//   getCurrentTime() {
+//     const now = new Date();
+//     const hours = now.getHours().toString().padStart(2, "0");
+//     const minutes = now.getMinutes().toString().padStart(2, "0");
+//     return `${hours}:${minutes}`;
+//   }
 
-  qoldiq() {
-    const time = this.getCurrentTime();
-    console.log(
-      `Hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
-    );
-  }
+//   qoldiq() {
+//     const time = this.getCurrentTime();
+//     console.log(
+//       `Hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
+//     );
+//   }
 
-  sotish(mahsulot, soni) {
-    const time = this.getCurrentTime();
-    if (this[mahsulot] !== undefined && this[mahsulot] >= soni) {
-      this[mahsulot] -= soni;
-      console.log(`Hozir ${time}da ${soni}ta ${mahsulot} sotildi.`);
-    } else {
-      console.log(`Kechirasiz, ${time}da yetarli ${mahsulot} mavjud emas.`);
-    }
-  }
+//   sotish(mahsulot, soni) {
+//     const time = this.getCurrentTime();
+//     if (this[mahsulot] !== undefined && this[mahsulot] >= soni) {
+//       this[mahsulot] -= soni;
+//       console.log(`Hozir ${time}da ${soni}ta ${mahsulot} sotildi.`);
+//     } else {
+//       console.log(`Kechirasiz, ${time}da yetarli ${mahsulot} mavjud emas.`);
+//     }
+//   }
 
-  qabul(mahsulot, soni) {
-    const time = this.getCurrentTime();
-    if (this[mahsulot] !== undefined) {
-      this[mahsulot] += soni;
-      console.log(`Hozir ${time}da ${soni}ta ${mahsulot} qabul qilindi.`);
-    } else {
-      console.log(`Kechirasiz, ${time}da noto'g'ri mahsulot turi.`);
-    }
-  }
+//   qabul(mahsulot, soni) {
+//     const time = this.getCurrentTime();
+//     if (this[mahsulot] !== undefined) {
+//       this[mahsulot] += soni;
+//       console.log(`Hozir ${time}da ${soni}ta ${mahsulot} qabul qilindi.`);
+//     } else {
+//       console.log(`Kechirasiz, ${time}da noto'g'ri mahsulot turi.`);
+//     }
+//   }
+// }
+
+// const shop = new Shop(4, 5, 2);
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
+// shop.qoldiq();
+
+// =========================================== E-TASK =================================
+
+function getReverse(str) {
+  return str.split("").reverse().join("");
 }
 
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();
+console.log(getReverse("hello"));
