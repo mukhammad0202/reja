@@ -182,8 +182,24 @@
 
 // =========================================== E-TASK =================================
 
-function getReverse(str) {
-  return str.split("").reverse().join("");
+// function getReverse(str) {
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(getReverse("hello"));
+
+// =========================================== F-TASK =================================
+
+function findDoublers(s) {
+  const seen = new Set();
+
+  for (const char of s) {
+    if (seen.has(char)) {
+      return true;
+    }
+    seen.add(char);
+  }
+  return false;
 }
 
-console.log(getReverse("hello"));
+console.log(findDoublers("hello"));
