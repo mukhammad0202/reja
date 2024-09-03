@@ -190,16 +190,37 @@
 
 // =========================================== F-TASK =================================
 
-function findDoublers(s) {
-  const seen = new Set();
+// function findDoublers(s) {
+//   const seen = new Set();
 
-  for (const char of s) {
-    if (seen.has(char)) {
-      return true;
-    }
-    seen.add(char);
+//   for (const char of s) {
+//     if (seen.has(char)) {
+//       return true;
+//     }
+//     seen.add(char);
+//   }
+//   return false;
+// }
+
+// console.log(findDoublers("hello"));
+
+// ======================================= G-TASK ==============================
+
+function getHighestIndex(arr) {
+  if (arr.length === 0) {
+    return -1;
   }
-  return false;
-}
 
-console.log(findDoublers("hello"));
+  let maxIndex = 0;
+  let maxValue = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > maxValue) {
+      maxValue = arr[i];
+      maxIndex = i;
+    }
+  }
+  return maxIndex;
+}
+const result = getHighestIndex([5, 21, 12, 21, 8]);
+console.log(result);
